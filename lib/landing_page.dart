@@ -57,20 +57,59 @@ class _LandingPageState extends State<LandingPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                MouseRegion(
-                  cursor: SystemMouseCursors.click, // pointer hand on web
-                  onEnter: (_) => setState(() => firstImageHover = true),
-                  onExit: (_) => setState(() => firstImageHover = false),
-                  child: GestureDetector(
-                    onTap: () {
-                      debugPrint("First container clicked!");
-                      // TODO: Navigate or open something
+                Expanded(
+                  child: MouseRegion(
+                    cursor: SystemMouseCursors.click, // pointer hand on web
+                    onEnter: (_) => setState(() => firstImageHover = true),
+                    onExit: (_) => setState(() => firstImageHover = false),
+                    child: GestureDetector(
+                      onTap: () {
+                        debugPrint("First container clicked!");
+                        // TODO: Navigate or open something
+                      },
+                      child: AnimatedContainer(
+                        duration: const Duration(milliseconds: 400),
+                        curve: Curves.easeInOut,
+                        height: firstImageHover ? 250 : 200,
+                        margin: EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black26,
+                              blurRadius: 8,
+                              spreadRadius: 2,
+                              offset: Offset(2, 4),
+                            ),
+                          ],
+                          image: const DecorationImage(
+                            image: AssetImage("assets/images/anime-night-sky-illustration.jpg"),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+
+
+                Expanded(
+                  child: MouseRegion(
+                    onEnter: (event) {
+                      setState(() {
+                        secondImageHover = true;
+                      });
+                    },
+                    onExit: (event) {
+                      setState(() {
+                        secondImageHover = false;
+                      });
+
                     },
                     child: AnimatedContainer(
-                      duration: const Duration(milliseconds: 400),
                       curve: Curves.easeInOut,
-                      height: firstImageHover ? 250 : 200,
-                      width: firstImageHover ? 250 : 200,
+                      height: secondImageHover?250:200,
+                      margin: EdgeInsets.all(20),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         boxShadow: [
@@ -81,51 +120,16 @@ class _LandingPageState extends State<LandingPage> {
                             offset: Offset(2, 4),
                           ),
                         ],
-                        image: const DecorationImage(
-                          image: AssetImage("assets/images/anime-night-sky-illustration.jpg"),
+                        image: DecorationImage(
+                          image: NetworkImage("https://yoodli.wpcomstaging.com/wp-content/uploads/2023/08/work-from-home-jobs-2.jpg"),
                           fit: BoxFit.cover,
                         ),
-                      ),
+                      ), duration: Duration(seconds: 1),
+
+
                     ),
-                  ),
-                ),
-                SizedBox(width: 20,),
-
-                MouseRegion(
-                  onEnter: (event) {
-                    setState(() {
-                      secondImageHover = true;
-                    });
-                  },
-                  onExit: (event) {
-                    setState(() {
-                      secondImageHover = false;
-                    });
-
-                  },
-                  child: AnimatedContainer(
-                    curve: Curves.easeInOut,
-                    height: secondImageHover?250:200,
-                    width: secondImageHover?250:200,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black26,
-                          blurRadius: 8,
-                          spreadRadius: 2,
-                          offset: Offset(2, 4),
-                        ),
-                      ],
-                      image: DecorationImage(
-                        image: NetworkImage("https://yoodli.wpcomstaging.com/wp-content/uploads/2023/08/work-from-home-jobs-2.jpg"),
-                        fit: BoxFit.cover,
-                      ),
-                    ), duration: Duration(seconds: 1),
-
 
                   ),
-
                 ),
               ],
             ),
@@ -134,7 +138,7 @@ class _LandingPageState extends State<LandingPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(onPressed: (){
-                  Navigator.pushReplacementNamed(context,'/SignIn');
+                  Navigator.pushNamed(context,'/SignIn');
                 }, child: Text("Sign In"))
                 ,SizedBox(width: 20,),
                 MouseRegion(

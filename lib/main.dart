@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
       ,
       theme: ThemeData(
         fontFamily: 'Suwannaphum',
+
       ),
 
 
