@@ -1,16 +1,33 @@
-# shopcraft
+# 🛒 Shopping App
 
-A new Flutter project.
+A simple Flutter-based shopping application that allows users to sign up, explore offers, and enjoy smooth navigation transitions.  
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 📌 Project Overview
+This project demonstrates the implementation of:
+- A **sign-up flow** for new users.  
+- A **shopping home screen** with offers and discounts.  
+- A **seamless animated navigation transition** (fade out/in).  
+- A clean and structured Flutter codebase following best practices.  
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## ✨ Features
+- **User Registration** → Sign-up page for new users.  
+- **Smooth Transition** → After signing up, the sign-up screen fades out and the home screen fades in.  
+- **Offers Section** → Displays promotions with gradient backgrounds and badges.  
+- **UI Enhancements** → ListTile with white background, shadows, and rounded corners for modern design.  
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## 🛠️ Tech Stack
+- **Framework**: Flutter  
+- **Language**: Dart  
+
+---
+
+## 🚀 Setup Instructions
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/<your-username>/<your-repo-name>.git
